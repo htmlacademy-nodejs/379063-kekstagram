@@ -8,14 +8,14 @@ class Project {
 
     this.validCommands = [`help`, `version`];
     this.commands = {
-      help: {
+      'help': {
         text: `
     Доступные комманды:
     --help    - печатает этот текст;
     --version - печатает версию приложения`,
         code: 0
       },
-      version: {
+      'version': {
         text: this.version,
         code: 0
       },
@@ -26,7 +26,7 @@ class Project {
     Автор: ${this.author}`,
         code: 0
       },
-      wrong: {
+      'wrong': {
         text: `
     Неизвестная комманда ${this.input}.
     Чтобы прочитать правила использования приложения, 
@@ -58,4 +58,5 @@ class Project {
   }
 }
 
-const project = new Project('Кекстаграм', 'Кекс');
+const project = new Project(`Кекстаграм`, `Кекс`);
+console.log(project);
