@@ -1,6 +1,6 @@
 {
-  "name": "keksnode",
-  "version": "1.0.0",
+  "name": "kekstagram",
+  "version": "0.0.1",
   "description": "* Студент: [Илья Барашков](https://up.htmlacademy.ru/nodejs/2/user/379063). * Наставник: `Дмитрий Мирошниченко`.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/mimiroff/379063-kekstagram.git"
   },
-  "author": "",
+  "author": "Ilia Barashkov",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mimiroff/379063-kekstagram/issues"
