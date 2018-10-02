@@ -1,5 +1,6 @@
 'use strict';
 
+const colors = require(`colors/safe`);
 const packageInfo = require(`../package.json`);
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
   description: `Shows program author`,
   code: 0,
   execute() {
-    console.log(`Author: ${packageInfo.author}`);
+    console.log(`${colors.green(`Author:`)} ${colors.blue(packageInfo.author)}`);
     process.exit(this.code);
   }
 };

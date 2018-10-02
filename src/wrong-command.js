@@ -1,16 +1,19 @@
 'use strict';
 
+const colors = require(`colors/safe`);
+const help = require(`./help`);
+
 module.exports = {
-  name: `help`,
+  name: `error`,
   description: `Shows error message`,
   code: 1,
   text(input) {
-    return `    Неизвестная комманда ${input}.
+    return `  Неизвестная комманда ${input}.
   Чтобы прочитать правила использования приложения,
-  наберите "--help"`;
+  наберите "--${help.name}"`;
   },
   execute(input) {
-    console.log(this.text(input));
+    console.log(colors.red(this.text(input)));
     process.exit(this.code);
   }
 };
