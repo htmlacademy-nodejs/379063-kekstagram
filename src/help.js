@@ -11,17 +11,18 @@ module.exports = {
     `help`,
   description:
     `Shows available commands of this program`,
-  text() {
-    return `  ${colors.blue(`Доступные комманды:`)}
-  --${colors.gray(this.name)}        - ${colors.green(this.description)};
-  --${colors.gray(version.name)}     - ${colors.green(version.description)};
-  --${colors.gray(license.name)}     - ${colors.green(license.description)};
-  --${colors.gray(author.name)}      - ${colors.green(author.description)};
-  --${colors.gray(description.name)} - ${colors.green(description.description)}`;
+  commands: [version, author, description, license],
+  generateText() {
+    return `${colors.blue(`Доступные комманды:`)}
+    --${colors.gray(this.name)}        - ${colors.green(this.description)};
+${this.commands.map((el) => {
+    return `    --${colors.gray(el.name)}    -${colors.green(el.description)};\n`;
+  }
+  ).join(``)}`;
   },
   code: 0,
   execute() {
-    console.log(this.text());
+    console.log(this.generateText());
     process.exit(this.code);
   }
 };
