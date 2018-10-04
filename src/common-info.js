@@ -1,13 +1,14 @@
 'use strict';
 
+const colors = require(`colors/safe`);
 const packageInfo = require(`../package.json`);
 
 module.exports = {
   name: `project info`,
   description: `Shows project info`,
-  text: `    Привет пользователь!
-  Эта программа будет запускать сервер "${packageInfo.name}".
-  Автор: ${packageInfo.author}`,
+  text: `  ${colors.cyan(`Привет пользователь!`)}
+  ${colors.green(`Эта программа будет запускать сервер`)} ${colors.cyan(`"${packageInfo.name}"`)}.
+  ${colors.green(`Автор`)}: ${colors.cyan(packageInfo.author)}`,
   code: 0,
   execute() {
     console.log(this.text);

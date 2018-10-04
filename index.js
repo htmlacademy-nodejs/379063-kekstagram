@@ -8,28 +8,16 @@ const license = require(`./src/license`);
 const commonInfo = require(`./src/common-info`);
 const wrongCommand = require(`./src/wrong-command`);
 
-const input = process.argv[2];
+const commands = {help, author, version, description, license, wrongCommand, commonInfo};
 
-switch (input) {
-  case `--help`:
-    help.execute();
-    break;
-  case `--version`:
-    version.execute();
-    break;
-  case `--author`:
-    author.execute();
-    break;
-  case `--description`:
-    description.execute();
-    break;
-  case `--license`:
-    license.execute();
-    break;
-  case undefined:
-    commonInfo.execute();
-    break;
-  default:
-    wrongCommand.execute(input);
-    break;
+const checkCommand = (command) => {
+  return (command.slice(0, 2) === `--` && command.slice(2) in commands) ? command.slice(2) : command;
+};
+
+const input = process.argv[2] ? checkCommand(process.argv[2]) : `commonInfo`;
+
+if (input in commands) {
+  commands[input].execute();
+} else {
+  commands[`wrongCommand`].execute(input);
 }

@@ -1,5 +1,5 @@
 'use strict';
-
+const colors = require(`colors/safe`);
 const packageInfo = require(`../package.json`);
 
 module.exports = {
@@ -7,7 +7,7 @@ module.exports = {
   description: `Shows program description`,
   code: 0,
   execute() {
-    console.log(`Description: ${packageInfo.description}`);
+    console.log(`${colors.green(`Description:`)} ${packageInfo.description}`);
     process.exit(this.code);
   }
 };
