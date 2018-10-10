@@ -3,7 +3,7 @@
 const getRandomInteger = require(`./utils`).getRandomInteger;
 const getRandomString = require(`./utils`).getRandomString;
 
-class GenerateEntity {
+module.exports = class GenerateEntity {
   constructor() {
     this.MAX_URL_QUERY_LENGTH = 20;
     this.DEFAULT_URL_TEXT = `https://mydomain/assets/600/?`;
@@ -95,12 +95,10 @@ class GenerateEntity {
       scale: this.getScale(),
       effect: this.getEffect(),
       hashtags: this.getHastags(),
-      decription: this.getDescription(),
+      description: this.getDescription(),
       likes: this.getLikes(),
       comments: this.getComments(),
       date: this.getDate()
     };
   }
-}
-
-module.exports.GenarateEntity = GenerateEntity;
+};
