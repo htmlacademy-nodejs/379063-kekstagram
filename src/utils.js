@@ -10,5 +10,7 @@ const getRandomString = (length, charset = `alphabetic`) => {
   return randomstring.generate({length, charset});
 };
 
-module.exports.getRandomInteger = getRandomInteger;
-module.exports.getRandomString = getRandomString;
+module.exports = {
+  getRandomInteger,
+  getRandomString
+};

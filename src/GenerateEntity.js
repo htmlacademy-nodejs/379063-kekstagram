@@ -1,7 +1,6 @@
 'use strict';
 
-const getRandomInteger = require(`./utils`).getRandomInteger;
-const getRandomString = require(`./utils`).getRandomString;
+const {getRandomInteger, getRandomString} = require(`./utils`);
 
 module.exports = class GenerateEntity {
   constructor() {
@@ -46,14 +45,11 @@ module.exports = class GenerateEntity {
   }
 
   getHastags() {
-    let text = `#`;
     const hashtags = new Set();
     let wordsCount = getRandomInteger(0, this.MAX_HASTAGS);
-    while (wordsCount >= 0) {
-      text += getRandomString(getRandomInteger(1, this.MAX_HASTAG_LENGTH));
-      wordsCount--;
+    for (let i = 0; i < wordsCount; i++) {
+      let text = `#${getRandomString(getRandomInteger(1, this.MAX_HASTAG_LENGTH))}`;
       hashtags.add(text);
-      text = `#`;
     }
     return hashtags;
   }
@@ -62,10 +58,9 @@ module.exports = class GenerateEntity {
     const stringLength = getRandomInteger(0, this.MAX_STRING_LENGTH);
     let text = ``;
     let wordsCount = Math.abs(stringLength / this.MAX_WORD_LENGTH);
-    while (wordsCount >= 0) {
+    for (let i = 0; i < wordsCount; i++) {
       let ending = wordsCount === 0 ? `.` : ` `;
-      text += getRandomString(getRandomInteger(1, this.MAX_WORD_LENGTH)) + ending;
-      wordsCount--;
+      text += `${getRandomString(getRandomInteger(1, this.MAX_WORD_LENGTH))}${ending}`;
     }
     return text;
   }
@@ -74,17 +69,15 @@ module.exports = class GenerateEntity {
     const comments = [];
     let text = ``;
     let commentsCount = getRandomInteger(0, this.MAX_COMMENTS);
-    while (commentsCount >= 0) {
+    for (let i = 0; i < commentsCount; i++) {
       const stringLength = getRandomInteger(0, this.MAX_STRING_LENGTH);
       let wordsCount = Math.abs(stringLength / this.MAX_WORD_LENGTH);
-      while (wordsCount >= 0) {
+      for (let j = 0; j < wordsCount; j++) {
         let ending = wordsCount === 0 ? `.` : ` `;
-        text += getRandomString(getRandomInteger(1, this.MAX_WORD_LENGTH)) + ending;
-        wordsCount--;
+        text += `${getRandomString(getRandomInteger(1, this.MAX_WORD_LENGTH))}${ending}`;
       }
       comments.push(text);
       text = ``;
-      commentsCount--;
     }
     return comments;
   }
