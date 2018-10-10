@@ -5,9 +5,8 @@ const GenerateEntity = require(`./GenerateEntity`);
 const generateEntity = (count = 1) => {
   const entity = new GenerateEntity();
   const entities = [];
-  while (count > 0) {
+  for (let i = 0; i < count; i++) {
     entities.push(entity.execute());
-    count--;
   }
   console.log(entities);
   return entities;

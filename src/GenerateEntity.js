@@ -75,7 +75,7 @@ module.exports = class GenerateEntity {
     let text = ``;
     let commentsCount = getRandomInteger(0, this.MAX_COMMENTS);
     while (commentsCount >= 0) {
-      let stringLength = getRandomInteger(0, this.MAX_STRING_LENGTH);
+      const stringLength = getRandomInteger(0, this.MAX_STRING_LENGTH);
       let wordsCount = Math.abs(stringLength / this.MAX_WORD_LENGTH);
       while (wordsCount >= 0) {
         let ending = wordsCount === 0 ? `.` : ` `;
