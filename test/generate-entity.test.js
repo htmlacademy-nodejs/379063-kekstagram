@@ -1,15 +1,13 @@
 'use strict';
 
 const assert = require(`assert`);
-const generateEntity = require(`../src/generate/generate-entity`).generateEntity;
+const generateEntity = require(`../src/generate-entity`).generateEntity;
 
 describe(`generate-entity check`, () => {
   describe(`return`, () => {
-    it(`should return warning text if empty argument is passed`, () => {
-      assert.equal(generateEntity(), `Please, enter a valid argument`);
-    });
-    it(`should return warning text if wrong argument is passed`, () => {
-      assert.equal(generateEntity(`foo`), `Please, enter a valid argument`);
+    it(`should return an array`, () => {
+      console.log(generateEntity());
+      assert.ok(Array.isArray(generateEntity()));
     });
     it(`should return number between 0 and 100 if 'scale' is passed as argument`, () => {
       let number = generateEntity(`scale`);
