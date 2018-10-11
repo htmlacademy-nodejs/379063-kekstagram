@@ -2,6 +2,9 @@
 
 const colors = require(`colors/safe`);
 const packageInfo = require(`../package.json`);
+const FileCli = require(`./FileCLI`);
+
+const fileCli = new FileCli();
 
 module.exports = {
   name: `project info`,
@@ -12,6 +15,6 @@ module.exports = {
   code: 0,
   execute() {
     console.log(this.text);
-    process.exit(this.code);
+    fileCli.askToGenerate();
   }
 };
